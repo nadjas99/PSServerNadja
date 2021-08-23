@@ -40,10 +40,10 @@ public class Controller {
         server.start();
     }
     public void stopServer(){
-        for(String email : activeClients.keySet()){
-            System.out.println(email);
+        for(String username : activeClients.keySet()){
+            System.out.println(username);
             try{
-                activeClients.get(email).close();
+                activeClients.get(username).close();
             }catch(Exception e){
                 System.out.println(e.getMessage());
             }
@@ -65,4 +65,5 @@ public class Controller {
        return admin;
     }
     //test da li radi commit na github
+    //ne radi
 }
