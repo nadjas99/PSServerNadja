@@ -26,6 +26,7 @@ public class UpdateReservation extends AbstractGenericOperation{
     protected void executeOperation(Object param) throws Exception {
        
         List<Reservation> reservations=repository.getAll(new Reservation());
+        
     }
     
 }

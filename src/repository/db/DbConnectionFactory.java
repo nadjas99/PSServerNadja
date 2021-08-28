@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
+import java.util.TimeZone;
 
 /**
  *
@@ -31,11 +32,11 @@ public class DbConnectionFactory {
     
     public Connection getConnection() throws Exception{
         if(conn==null || conn.isClosed()){
-            Properties properties = new Properties();
-            properties.load(new FileInputStream("config/dbconfig.properties"));
-            String url = properties.getProperty("url");
-            String username = properties.getProperty("username");
-            String password = properties.getProperty("password");
+          
+            //String url = "jdbc:mysql://localhost:3306/psprojekat";
+            String url = "jdbc:mysql://localhost:3306/psprojekat?serverTimezone=" + TimeZone.getDefault().getID();
+            String username = "root";
+            String password = "root";
             conn = DriverManager.getConnection(url,username,password);
             conn.setAutoCommit(false);
         }

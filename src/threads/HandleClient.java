@@ -11,7 +11,10 @@ import communication.Request;
 import communication.Response;
 import communication.Sender;
 import controller.Controller;
+import domain.Client;
 import domain.Photographer;
+import domain.PhotographyServices;
+import domain.Reservation;
 
 import java.net.Socket;
 import java.util.List;
@@ -39,54 +42,48 @@ public class HandleClient extends Thread{
                 
                 try{
                     switch(request.getOperation()){
-                       /* case GET_ALL_LOCAL_GROUPS:
-                            List<LocalGroup> lg = Controller.getInstance().getAllLocalGroups();
-                            response.setResult(lg);
-                            break;*/
+                        case GET_ALL_SERVICES:
+                            List<PhotographyServices> services = Controller.getInstance().getAllServices();
+                            response.setResult(services);
+                            break;
                         case LOGIN:
                             Photographer admin = (Photographer) request.getArgument();
                             admin = Controller.getInstance().login(admin.getUsername(), admin.getPassword(),socket);
                             response.setResult(admin);
                             response.setOperation(Operation.LOGIN);
                             break;
-                        /*case ADD_MEMBER:
-                            Member member = (Member) request.getArgument();
-                            Controller.getInstance().addMember(member);
+                        case ADD_NEW_CLIENT:
+                            Client client = (Client) request.getArgument();
+                            Controller.getInstance().addClient(client);
                             break;
-                        case GET_ALL_MEMBERS:
-                            response.setResult(Controller.getInstance().getAllMembers());
+                        case GET_ALL_CLIENTS:
+                            response.setResult(Controller.getInstance().getAllClients());
                             break;
-                        case ADD_TASK_GROUP:
-                            TaskGroup tg = (TaskGroup) request.getArgument();
-                            Controller.getInstance().addTaskGroup(tg);
+                        case ADD_NEW_RESERVATION:
+                            Reservation reservation = (Reservation) request.getArgument();
+                            Controller.getInstance().saveNewReservation(reservation);
                             break;
-                        case GET_ALL_TASK_GROUPS:
-                            response.setResult(Controller.getInstance().getAllTaskGroups());
+                        case GET_ALL_RESERVATIONS:
+                            response.setResult(Controller.getInstance().getAllReservations());
                             break;
-                        case UPDATE_MEMBER:
-                            Member memberUpd = (Member) request.getArgument();
-                            Controller.getInstance().editMember(memberUpd);
+                        case EDIT_CLIENT:
+                            Client clientEdit = (Client) request.getArgument();
+                            Controller.getInstance().editClient(clientEdit);
                             break;
-                        case DELETE_MEMBER:
-                            Member memberDel = (Member) request.getArgument();
-                            Controller.getInstance().deleteMember(memberDel);
+                        case DELETE_CLIENT:
+                            Client clientRemove = (Client) request.getArgument();
+                            Controller.getInstance().deleteClient(clientRemove);
                             break;  
-                        case FIND_MEMBER:
-                            Member memberFind = (Member) request.getArgument();
-                            response.setResult(Controller.getInstance().searchMember(memberFind));
-                            break;
-                        case FIND_TASK_GROUP:
-                            TaskGroup tgFind = (TaskGroup) request.getArgument();
-                            response.setResult(Controller.getInstance().searchTaskGroup(tgFind));
-                            break;
+                        
+                       
                         case LOGOUT:
-                            CommitteeLeader cmOut = (CommitteeLeader) request.getArgument();
-                            Controller.getInstance().logOutUser(cmOut);
+                            Photographer admin1 = (Photographer) request.getArgument();
+                            Controller.getInstance().logOutUser(admin1);
                             break;
-                        case SAVE_ALL_TASKS:
-                            TaskGroup taskGroup = (TaskGroup) request.getArgument();
-                            Controller.getInstance().updateTaskGroup(taskGroup);
-                            break;*/
+                        case UPDATE_RESERVATION:
+                            Reservation reservation1 = (Reservation) request.getArgument();
+                            Controller.getInstance().updateReservation(reservation1);
+                            break;
                     }
                 }catch(Exception e){
                     response.setException(e);
