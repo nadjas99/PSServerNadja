@@ -6,6 +6,7 @@
 package operation.reservation;
 
 import domain.Reservation;
+import domain.ReservationDetail;
 import java.util.List;
 import operation.AbstractGenericOperation;
 
@@ -24,8 +25,25 @@ public class UpdateReservation extends AbstractGenericOperation{
 
     @Override
     protected void executeOperation(Object param) throws Exception {
+        Reservation r=(Reservation) param;
+        System.out.println(r);
+        List<ReservationDetail> detailsNew=r.getReservationDetails();
+        List<ReservationDetail> detailsOld=repository.getAllBy(new ReservationDetail(), "idReservation", r.getId().toString());
+        
+        for (ReservationDetail reservationDetail : detailsOld) {
+            if(!detailsNew.contains(reservationDetail)){
+                repository.delete(reservationDetail);
+            }else{
+                detailsNew.remove(reservationDetail);
+            }
+            
+        }
+        for (ReservationDetail reservationDetail1 : detailsNew) {
+            repository.add(reservationDetail1);
+       }
        
-        List<Reservation> reservations=repository.getAll(new Reservation());
+        repository.edit(param);
+        
         
     }
     
