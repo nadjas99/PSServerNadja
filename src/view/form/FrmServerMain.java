@@ -33,14 +33,15 @@ public class FrmServerMain extends javax.swing.JFrame {
         btnStart = new javax.swing.JButton();
         btnStop = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jmiDataBase = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        btnStart.setBackground(new java.awt.Color(102, 255, 0));
+        btnStart.setFont(new java.awt.Font("Edo", 0, 16)); // NOI18N
+        btnStart.setForeground(new java.awt.Color(0, 51, 0));
         btnStart.setText("Start server");
         btnStart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -48,6 +49,8 @@ public class FrmServerMain extends javax.swing.JFrame {
             }
         });
 
+        btnStop.setBackground(new java.awt.Color(255, 51, 51));
+        btnStop.setFont(new java.awt.Font("Edo", 0, 16)); // NOI18N
         btnStop.setText("Stop server");
         btnStop.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,25 +59,11 @@ public class FrmServerMain extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setText("Milica Spasojevic");
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel2.setText("2017/0230");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        jMenu1.setText("Settings");
-
-        jmiDataBase.setText("Database config");
-        jmiDataBase.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmiDataBaseActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jmiDataBase);
-
-        jMenuBar1.add(jMenu1);
-
+        jLabel2.setFont(new java.awt.Font("Edo", 1, 24)); // NOI18N
+        jLabel2.setText("Photography service reservation app");
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -82,33 +71,36 @@ public class FrmServerMain extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnStart, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(btnStop, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(189, 189, 189))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel3)
-                        .addComponent(jLabel1)
-                        .addComponent(jLabel2)))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addGap(368, 368, 368)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(btnStart, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnStop, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(65, 65, 65)
-                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3)
+                .addGap(55, 55, 55)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addGap(42, 42, 42)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnStart, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnStop, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(64, Short.MAX_VALUE))
+                    .addComponent(btnStart, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnStop, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         pack();
@@ -130,11 +122,6 @@ public class FrmServerMain extends javax.swing.JFrame {
         btnStop.setEnabled(false);
     }//GEN-LAST:event_btnStopActionPerformed
 
-    private void jmiDataBaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiDataBaseActionPerformed
-        // TODO add your handling code here:
-        new FrmConfig(this, true).setVisible(true);
-    }//GEN-LAST:event_jmiDataBaseActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -146,8 +133,6 @@ public class FrmServerMain extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jmiDataBase;
     // End of variables declaration//GEN-END:variables
 }

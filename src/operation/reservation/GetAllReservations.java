@@ -6,6 +6,7 @@
 package operation.reservation;
 
 import domain.Reservation;
+import domain.ReservationDetail;
 import java.util.List;
 import operation.AbstractGenericOperation;
 
@@ -23,6 +24,14 @@ public class GetAllReservations extends AbstractGenericOperation{
     @Override
     protected void executeOperation(Object param) throws Exception {
         reservations=repository.getAll((Reservation)param);
+        for (Reservation reservation : reservations) {
+            reservation.setReservationDetails(repository.getAllBy(new ReservationDetail(), "idReservation", reservation.getId().toString()));
+            for (ReservationDetail rd: reservation.getReservationDetails()) {
+                rd.setReservation(reservation);
+                
+            }
+        }
+        
     }
 
     public List<Reservation> getReservations() {

@@ -35,6 +35,7 @@ public class LogInPhotographer extends AbstractGenericOperation{
     }
 
     public Photographer getPhotographer() {
+        System.out.println(photographer.getId());
         return photographer;
     }
     

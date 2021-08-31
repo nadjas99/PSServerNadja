@@ -15,6 +15,7 @@ import domain.Client;
 import domain.Photographer;
 import domain.PhotographyServices;
 import domain.Reservation;
+import domain.ReservationDetail;
 
 import java.net.Socket;
 import java.util.List;
@@ -62,6 +63,7 @@ public class HandleClient extends Thread{
                         case ADD_NEW_RESERVATION:
                             Reservation reservation = (Reservation) request.getArgument();
                             Controller.getInstance().saveNewReservation(reservation);
+                            response.setResult(reservation);
                             break;
                         case GET_ALL_RESERVATIONS:
                             response.setResult(Controller.getInstance().getAllReservations());

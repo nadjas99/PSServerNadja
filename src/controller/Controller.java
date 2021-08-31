@@ -9,6 +9,7 @@ import domain.Client;
 import domain.Photographer;
 import domain.PhotographyServices;
 import domain.Reservation;
+import domain.ReservationDetail;
 import java.net.Socket;
 import java.util.HashMap;
 import java.util.List;
@@ -135,4 +136,6 @@ public class Controller {
         operation.execute(reservation1);
         
     }
+
+   
 }
