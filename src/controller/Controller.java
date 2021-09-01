@@ -128,7 +128,7 @@ public class Controller {
     }
 
     public void logOutUser(Photographer admin1) {
-        activeClients.remove(admin1.getUsername()); //To change body of generated methods, choose Tools | Templates.
+        activeClients.remove(admin1.getUsername()); 
     }
 
     public void updateReservation(Reservation reservation1) throws Exception {
